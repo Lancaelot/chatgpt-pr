@@ -45,6 +45,7 @@ function ChatRow({ id }: Props) {
         </div>
       </div>
       <TrashIcon
+        data-testid='trash-icon'
         onClick={removeChat}
         className='text-gray-light ml-auto h-5 w-5 shrink-0 hover:text-red-700'
       />

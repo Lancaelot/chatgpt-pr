@@ -9,10 +9,17 @@ type Props = {
 function Message({ message }: Props) {
   const isChatGPT = message.user.name === 'ChatGPT';
   return (
-    <div className={clsx('px-4 py-6 text-white', isChatGPT && 'bg-gray-light')}>
+    <div
+      data-testid='message'
+      className={clsx('px-4 py-6 text-white', isChatGPT && 'bg-gray-light')}
+    >
       <div className='mx-auto flex max-w-4xl space-x-5 px-3'>
-        <img src={message.user?.avatar ?? ''} className='h-8 w-8' alt='user' />
-
+        <img
+          data-testid='message-userAvatar'
+          src={message.user?.avatar ?? ''}
+          className='h-8 w-8'
+          alt='user'
+        />
         <p className='pt-1 text-sm'>{message.text}</p>
       </div>
     </div>

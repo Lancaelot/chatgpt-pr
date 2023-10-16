@@ -14,6 +14,7 @@ function ModelSelection() {
     <div>
       <Select
         className='mt-4'
+        data-testid='model-selection'
         isSearchable
         options={models?.modelOptions}
         isLoading={isLoading}

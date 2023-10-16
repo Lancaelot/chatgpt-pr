@@ -5,15 +5,15 @@ import { signOut, useSession } from 'next-auth/react';
 import React from 'react';
 import { useCollection } from 'react-firebase-hooks/firestore';
 
-import NewChatButton from './buttons/NewChatButton';
 import ChatRow from './ChatRow';
-import { db } from '../../firebase';
 import ModelSelection from './ModelSelection';
+import NewChatButton from './NewChatButton';
+import { db } from '../../firebase';
 
 const SideBar = () => {
   const { data: session } = useSession();
 
-  const [chats, loading, error] = useCollection(
+  const [chats, loading] = useCollection(
     session &&
       query(
         collection(db, 'users', session.user?.email ?? '', 'chats'),

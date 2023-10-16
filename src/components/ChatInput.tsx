@@ -25,7 +25,7 @@ function ChatInput({ chatId }: Props) {
     handleSubmit,
     formState: { errors },
     resetField,
-  } = useForm<SendMessageFrom>();
+  } = useForm<SendMessageFrom>({ defaultValues: { prompt: '' } });
 
   const { data: model } = useSWR('model', {
     fallbackData: 'text-davinci-003',
@@ -117,6 +117,7 @@ function ChatInput({ chatId }: Props) {
         <button
           disabled={!session || !!errors.prompt?.message}
           type='submit'
+          data-testid='submit'
           className='mt-auto h-fit w-fit rounded bg-green-500 p-1.5'
         >
           <PaperAirplaneIcon className='h-5 w-5 text-white' />

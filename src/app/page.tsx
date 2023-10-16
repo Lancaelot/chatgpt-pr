@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import * as React from 'react';
 
-import InfoTipCta from '@/components/buttons/InfoTipButton';
+import InfoTipCta from '@/components/InfoTipButton';
 
 import { postQuestion } from '@/utils/api';
 import { addChat } from '@/utils/firebase';
@@ -44,7 +44,7 @@ export default function HomePage() {
         session,
       });
     } catch (e) {
-      alert(e);
+      return alert(e);
     }
   };
 
